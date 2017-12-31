@@ -1,0 +1,92 @@
+@import '../tools/utils';
+
+.site-header
+  background-color: #fff;
+  .inner
+    width: 1200px;
+    margin: 0 auto;
+    height: 75px;
+  @include clearfix();
+  .logo
+    display: block;
+    float: left;
+    width: 145px;
+    height: 70px;
+    margin-right: 20px;
+    background: transparent url('/assets/img/logo.png') scroll no-repeat left center;
+    background-size: contain;
+
+  .nav-left
+    padding-top: 40px;
+    float: left;
+    .items
+      font-size: 0;
+      text-align: left;
+    .item
+      display: inline-block;
+      list-style-type: none;
+      @include cursor();
+    @for $i from 1 through 6
+      .item:nth-of-type(n+#{$i})
+        .link
+          animation: Shake 5600ms ease-in #{$i * 800}ms infinite;
+    .link
+      display: block;
+      padding: 0 12px;
+      letter-spacing: .01em;
+      color: #000;
+      line-height: 28px;
+      font-size: 16px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "微软雅黑", "华文细黑", STHeiti, "Microsoft YaHei", SimHei, sans-serif !important;
+      transition: 150ms all linear 0ms;
+      &:hover
+        color: #ff8000;
+      &:active
+        color: darken(#ff8000, 30%);
+
+  .nav-right
+    padding-top: 16px;
+    float: right;
+    .section
+      display: block;
+      &:nth-of-type(n+2)
+        margin-top: 10px;
+    .items
+      @include clearfix();
+    .item
+      float: right;
+    .link
+      font-size: 12px;
+      color: #444;
+      transition: 150ms all linear 0ms;
+      &:hover
+        color: #ff8000;
+    .divider
+      font-size: 12px;
+      color: #444;
+      margin: 0 5px;
+    .phone
+      background: transparent url('/assets/img/mobile-icon.svg') scroll no-repeat 7px center;
+      background-size: 14px 14px;
+      color: #ff8000;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 20px;
+      padding-left: 26px;
+
+@keyframes Shake
+  0%
+    transform: rotateZ(0deg);
+    // color: #000;
+  3%
+    transform: rotateZ(-10deg);
+    // color: #ff8000;
+  9%
+    transform: rotateZ(10deg);
+    // color: #ff8000;
+  12%
+    transform: rotateZ(0deg);
+    // color: #000;
+  100%
+    transform: rotateZ(0deg);
+    // color: #000;
